@@ -1,0 +1,13 @@
+.active{
+    background-color: white !important;
+    color: grey;
+}
+a{
+    color: #ccc;
+}
+a:hover{
+    color: #fff
+}
+a.active:hover{
+    color: black;
+}

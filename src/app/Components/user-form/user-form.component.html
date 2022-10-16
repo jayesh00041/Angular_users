@@ -1,0 +1,58 @@
+<div class="container d-flex justify-content-center align-items-center flex-column" style="height: 90vh;">
+    <h3 class="m-4">Add New User</h3>
+    <form [formGroup]="userForm">
+        <div class="form-row">
+            <div class="form-group">
+                <input type="text" class="form-control" formControlName="first_name" placeholder="First Name">
+            </div>
+            <div *ngIf="userForm.get('first_name').invalid && userForm.get('first_name').errors && (userForm.get('first_name').dirty || userForm.get('first_name').touched)">
+                <span *ngIf="userForm.get('first_name').hasError('required')">
+                    {{error.required}}
+                </span>
+                <span *ngIf="userForm.get('first_name').errors?.minlength">
+                    {{error.minLength}}
+                </span>
+                <span *ngIf="userForm.get('first_name').errors?.maxlength">
+                    {{error.maxLength}}
+                </span>
+            </div>
+            
+            <div class="form-group">
+                <input type="text" class="form-control" formControlName="last_name" placeholder="Last Name">
+            </div>
+            <div *ngIf="userForm.get('last_name').invalid && userForm.get('last_name').errors && (userForm.get('last_name').dirty || userForm.get('last_name').touched)">
+                <span *ngIf="userForm.get('last_name').hasError('required')">
+                    {{error.required}}
+                </span>
+                <span *ngIf="userForm.get('last_name').errors?.minlength">
+                    {{error.minLength}}
+                </span>
+                <span *ngIf="userForm.get('last_name').errors?.maxlength">
+                    {{error.maxLength}}
+                </span>
+            </div>
+
+            <div class="form-group">
+                <input type="email" class="form-control" formControlName="email" placeholder="Email">
+            </div>
+
+            <div *ngIf="userForm.get('email').invalid && userForm.get('email').errors && (userForm.get('email').dirty || userForm.get('email').touched)">
+                <span *ngIf="userForm.get('email').hasError('required')">
+                    {{error.required}}
+                </span>
+                <span *ngIf="userForm.get('email').errors?.minlength">
+                    {{error.minLength}}
+                </span>
+                <span *ngIf="userForm.get('email').errors?.maxlength">
+                    {{error.maxLength}}
+                </span>
+            </div>
+
+            <div class="form-group">
+                <input type="url" class="form-control" formControlName="avatar" placeholder="Profile URL">
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+        {{userForm.errors}}
+    </form>
+</div>
