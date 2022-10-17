@@ -12,3 +12,6 @@ input:focus{
 form{
     width: 50%;
 }
+small{
+    color: red;
+}
